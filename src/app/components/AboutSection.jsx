@@ -16,6 +16,7 @@ const TAB_DATA = [
                 <li>TailWind CSS</li>
                 <li>Linux</li>
                 <li>WebHosting</li>
+                <li>Python</li>
       </ul>
     ),
   },
