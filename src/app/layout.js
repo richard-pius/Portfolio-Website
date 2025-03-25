@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Portfolio Website",
   description: "This is a portfolio website created by Richard Pius! and here is the link to both my github and linkdin profiles : https://github.com/richard-pius  https://www.linkedin.com/in/richard-pius-2b4248322?utm_source=share&utm_campaign=share_via&utm_content=profile",
-  Content: "[Richard Pius] , https://github.com/richard-pius , https://www.linkedin.com/in/richard-pius-2b4248322?utm_source=share&utm_campaign=share_via&utm_content=profile",
+  Content: "[Richard Pius] , [richard-pius] , https://github.com/richard-pius , https://www.linkedin.com/in/richard-pius-2b4248322?utm_source=share&utm_campaign=share_via&utm_content=profile",
 };
 
 export default function RootLayout({ children }) {
