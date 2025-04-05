@@ -12,7 +12,7 @@ const projectsData = [
     image: "/images/projects/portfolio-website.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/richard-pius/Portfolio-Website",
-    previewUrl: "https://portfolio-website-beige-six.vercel.app/",
+    previewUrl: "https://richardpius.vercel.app/",
   },
   {
     id: 2,
