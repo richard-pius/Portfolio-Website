@@ -32,6 +32,15 @@ const projectsData = [
     gitUrl: "https://github.com/richard-pius/Todolist",
     previewUrl: "https://github.com/richard-pius/Todolist/releases",
   },
+  {
+    id: 4,
+    title: "2D Game Portfolio Website",
+    description: "This project is an another variant of a portfolio website which is a game!",
+    image: "./images/2d-portfolio.jpg",
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/richard-pius/2D-game-portfolio-website",
+    previewUrl: "https://2d-portfolio-game.pages.dev/",
+  },
 ];
 
 
