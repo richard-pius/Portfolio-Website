@@ -60,7 +60,7 @@ const AboutSection = () => {
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
-          I'm Richard Pius, a first-year BCA student passionate about computer science.
+          I'm Richard Pius, a second year BCA student passionate about computer science.
           As a dedicated computer enthusiast, I'm eager to explore the world of programming and software development. 
           I'm committed to learning new technologies and applying my skills to create innovative solutions.
           As a computer enthusiast, I'm constantly exploring the latest technological advancements and breakthroughs in computer science. 

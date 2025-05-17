@@ -37,7 +37,7 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-          I'm Richard Pius, a first-year BCA student passionate about computer science.
+          I'm Richard Pius, a second year BCA student passionate about computer science.
          As a dedicated computer enthusiast, I'm eager to explore the world of programming and software development. 
          I'm committed to learning new technologies and applying my skills to create innovative solutions.
           </p>
