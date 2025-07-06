@@ -26,11 +26,11 @@ const projectsData = [
   {
     id: 3,
     title: "Todo List Website",
-    description: "This project is about a Todo List website.",
+    description: "This project is a Todo List website created without any framework.",
     image: "/images/projects/todo.png",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/richard-pius/Todolist",
-    previewUrl: "https://github.com/richard-pius/Todolist/releases",
+    gitUrl: "https://github.com/richard-pius/Todo_list_website",
+    previewUrl: "https://richard-pius.github.io/Todo_list_website/",
   },
   {
     id: 4,
