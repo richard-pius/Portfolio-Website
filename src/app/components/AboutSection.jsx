@@ -37,6 +37,11 @@ const TAB_DATA = [
       <ul className="list-disc pl-2">
         <li>Bachelor of Computer Application (ongoing)</li>
         <li>Operating Systems and You ,by Google (ongoing)</li>
+        <li>Deloitte Australia Cyber Job Simulation on Forage - August 2025</li>
+        <li>Goldman Sachs Risk Job Simulation on Forage - August 2025</li>
+        <li>Deloitte Australia Data Analytics Job Simulation on Forage - August 2025</li>
+        <li>Goldman Sachs Controllers Job Simulation on Forage - August 2025</li>
+        <li>Deloitte Australia Technology Job Simulation on Forage - August 2025</li>
 
       </ul>
     ),

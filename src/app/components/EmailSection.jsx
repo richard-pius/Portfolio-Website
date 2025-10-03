@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import BloggerIcon from "../../../public/blogger-icon.png";
+import Youtube from "../../../public/youtube.svg";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -65,6 +66,9 @@ const EmailSection = () => {
           </Link>
           <Link href="https://architectofabstraction.blogspot.com/">
             <Image src={BloggerIcon} alt="Blogger Icon" />
+          </Link>
+          <Link href="https://www.youtube.com/@Richard_Pius">
+            <Image src={Youtube} alt="Youtube Icon" />
           </Link>
         </div>
       </div>
