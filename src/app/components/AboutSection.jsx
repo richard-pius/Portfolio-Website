@@ -42,6 +42,7 @@ const TAB_DATA = [
         <li>Deloitte Australia Data Analytics Job Simulation on Forage - August 2025</li>
         <li>Goldman Sachs Controllers Job Simulation on Forage - August 2025</li>
         <li>Deloitte Australia Technology Job Simulation on Forage - August 2025</li>
+        <li>Understanding LLMs and Basic Prompting Techniques on CodeSignal - September 2025</li>
 
       </ul>
     ),

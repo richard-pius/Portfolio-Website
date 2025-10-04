@@ -41,6 +41,15 @@ const projectsData = [
     gitUrl: "https://github.com/richard-pius/2D-game-portfolio-website",
     previewUrl: "https://2d-portfolio-game.pages.dev/",
   },
+  {
+    id: 4,
+    title: "2D Platformer Game",
+    description: "This is a A simple 2D platformer game created using the Godot Engine. This project was built as a learning exercise, following various tutorials and using freely available assets.",
+    image: "/images/projects/platform-game.jpg",
+    tag: ["All", "Game Development"],
+    gitUrl: "https://github.com/richard-pius/2D-Platform-Game",
+    previewUrl: "https://github.com/richard-pius/2D-Platform-Game/releases",
+  },
 ];
 
 
@@ -82,6 +91,11 @@ const ProjectsSection = () => {
           onClick={handleTagChange}
           name="Software"
           isSelected={tag === "Software"}
+        />
+        <ProjectTag
+          onClick={handleTagChange}
+          name="Game Development"
+          isSelected={tag === "Game Development"}
         />
       </div>
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
