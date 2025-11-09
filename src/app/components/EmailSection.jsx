@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
-import BloggerIcon from "../../../public/blogger-icon.png";
+import BloggerIcon from "../../../public/blogger-icon.svg";
 import Youtube from "../../../public/youtube.svg";
 import Link from "next/link";
 import Image from "next/image";
@@ -64,8 +64,8 @@ const EmailSection = () => {
           <Link href="https://in.linkedin.com/in/richard-pius-2b4248322">
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
           </Link>
-          <Link href="https://architectofabstraction.blogspot.com/">
-            <Image src={BloggerIcon} alt="Blogger Icon" />
+          <Link href="https://richardblog.vercel.app/">
+            <Image src={BloggerIcon} alt="Blog Website" />
           </Link>
           <Link href="https://www.youtube.com/@Richard_Pius">
             <Image src={Youtube} alt="Youtube Icon" />
