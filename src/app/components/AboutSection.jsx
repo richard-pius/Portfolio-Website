@@ -43,6 +43,7 @@ const TAB_DATA = [
         <li>Goldman Sachs Controllers Job Simulation on Forage - August 2025</li>
         <li>Deloitte Australia Technology Job Simulation on Forage - August 2025</li>
         <li>Understanding LLMs and Basic Prompting Techniques on CodeSignal - September 2025</li>
+        <li>NPTEL Cloud Computing - november 2025</li>
 
       </ul>
     ),

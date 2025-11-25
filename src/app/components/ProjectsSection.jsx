@@ -50,6 +50,15 @@ const projectsData = [
     gitUrl: "https://github.com/richard-pius/2D-Platform-Game",
     previewUrl: "https://github.com/richard-pius/2D-Platform-Game/releases",
   },
+  {
+    id: 5,
+    title: "Semantic Book Recommender",
+    description: "I am absolutely thrilled to share a project I recently completed: building a powerful semantic book recommendation engine! ",
+    image: "/images/projects/book.png",
+    tag: ["All", "Software"],
+    gitUrl: "https://github.com/richard-pius/A-semantic-library-book-recommender",
+    previewUrl: "https://github.com/richard-pius/A-semantic-library-book-recommender",
+  },
 ];
 
 
