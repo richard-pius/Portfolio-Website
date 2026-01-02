@@ -59,6 +59,15 @@ const projectsData = [
     gitUrl: "https://github.com/richard-pius/A-semantic-library-book-recommender",
     previewUrl: "https://github.com/richard-pius/A-semantic-library-book-recommender",
   },
+  {
+    id: 6,
+    title: "Simple Android Calculator",
+    description: "I recently developed a user-friendly Android calculator designed to handle everyday tasks with accuracy and ease. This project allowed me to focus on creating a stable codebase and a minimalist interface, ensuring that the application is both reliable and intuitive for the end user.",
+    image: "/images/projects/result.png",
+    tag: ["All", "Mobile Development"],
+    gitUrl: "https://github.com/richard-pius/simple_calculator",
+    previewUrl: "https://github.com/richard-pius/simple_calculator/releases/tag/v1.0",
+  },
 ];
 
 
@@ -105,6 +114,11 @@ const ProjectsSection = () => {
           onClick={handleTagChange}
           name="Game Development"
           isSelected={tag === "Game Development"}
+        />
+        <ProjectTag
+          onClick={handleTagChange}
+          name="Mobile Development"
+          isSelected={tag === "Mobile Development"}
         />
       </div>
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">

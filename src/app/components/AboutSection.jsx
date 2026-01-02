@@ -17,6 +17,10 @@ const TAB_DATA = [
                 <li>Linux</li>
                 <li>WebHosting</li>
                 <li>Python</li>
+                <li>Kotlin</li>
+                <li>MySql</li>
+                <li>MongoDB</li>
+                <li>Bootstrap</li>
       </ul>
     ),
   },
