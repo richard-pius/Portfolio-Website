@@ -42,7 +42,7 @@ const projectsData = [
     previewUrl: "https://2d-portfolio-game.pages.dev/",
   },
   {
-    id: 4,
+    id: 5,
     title: "2D Platformer Game",
     description: "This is a A simple 2D platformer game created using the Godot Engine. This project was built as a learning exercise, following various tutorials and using freely available assets.",
     image: "/images/projects/platform-game.jpg",
@@ -51,7 +51,7 @@ const projectsData = [
     previewUrl: "https://github.com/richard-pius/2D-Platform-Game/releases",
   },
   {
-    id: 5,
+    id: 6,
     title: "Semantic Book Recommender",
     description: "I am absolutely thrilled to share a project I recently completed: building a powerful semantic book recommendation engine! ",
     image: "/images/projects/book.png",
@@ -60,13 +60,22 @@ const projectsData = [
     previewUrl: "https://github.com/richard-pius/A-semantic-library-book-recommender",
   },
   {
-    id: 6,
+    id: 7,
     title: "Simple Android Calculator",
     description: "I recently developed a user-friendly Android calculator designed to handle everyday tasks with accuracy and ease. This project allowed me to focus on creating a stable codebase and a minimalist interface, ensuring that the application is both reliable and intuitive for the end user.",
     image: "/images/projects/result.png",
     tag: ["All", "Mobile Development"],
     gitUrl: "https://github.com/richard-pius/simple_calculator",
     previewUrl: "https://github.com/richard-pius/simple_calculator/releases/tag/v1.0",
+  },
+  {
+    id: 8,
+    title: "Personal Blog Website",
+    description: "This is my Personal Blog website made using NextJs.",
+    image: "/images/projects/blog.png",
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/richard-pius/Blog",
+    previewUrl: "https://richardblog.vercel.app/",
   },
 ];
 

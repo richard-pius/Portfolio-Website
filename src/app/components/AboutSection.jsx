@@ -20,7 +20,9 @@ const TAB_DATA = [
                 <li>Kotlin</li>
                 <li>MySql</li>
                 <li>MongoDB</li>
-                <li>Bootstrap</li>
+                <li>Bootstrap 5</li>
+                <li>MongoDB</li>
+                <li>Java</li>
       </ul>
     ),
   },
@@ -48,6 +50,7 @@ const TAB_DATA = [
         <li>Deloitte Australia Technology Job Simulation on Forage - August 2025</li>
         <li>Understanding LLMs and Basic Prompting Techniques on CodeSignal - September 2025</li>
         <li>NPTEL Cloud Computing - november 2025</li>
+        <li>Cyber Security Bootcamp:Recon to Exploitation By TBH - January 2026</li>
 
       </ul>
     ),
