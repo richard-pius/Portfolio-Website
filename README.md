@@ -65,6 +65,13 @@ A natively written, stable utility application built in Kotlin focusing on fluid
 
 ---
 
+# 🧭 Acknowledgments & Credits
+
+* Special thanks to **[JavaScript Mastery](https://www.youtube.com/@javascriptmastery)** for providing the foundational 3D component architecture blueprints used to engineer the layout dynamics of my portfolio website. 
+* The video tutorial followed for this project build can be found here: **[Build and Deploy an Amazing 3D Web Developer Portfolio in React JS](https://www.youtube.com/watch?v=0fYi8SGA20k)**.
+
+---
+
 ## 🤝 Let's Connect!
 
 I am always looking forward to collaborating on open-source initiatives, full-stack web applications, or security audit systems.
