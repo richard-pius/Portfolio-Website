@@ -10,6 +10,7 @@ import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 import Education from "./Education";
 import Certifications from "./Certifications";
+import DesktopOnlyGuard from './DesktopOnlyGuard';
 
 export {
   Hero,
@@ -22,6 +23,7 @@ export {
   Works,
   Feedbacks,
   Contact,
+  DesktopOnlyGuard,
   CanvasLoader,
   EarthCanvas, 
   BallCanvas, 

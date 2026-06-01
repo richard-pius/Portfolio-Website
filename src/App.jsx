@@ -3,30 +3,31 @@ import {
   About, 
   Contact, 
   Experience, 
+  Feedbacks, 
   Hero, 
   Navbar, 
   Tech, 
   Works, 
-  StarsCanvas, 
-  Education, 
-  Certifications 
+  StarsCanvas,
+  DesktopOnlyGuard // 👈 Imported cleanly inline here
 } from "./components";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <div className='relative z-0 bg-primary'>
-        <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
+      {/* 🛡️ Intercepts mobile screen widths before rendering heavy graphics canvas objects */}
+      <DesktopOnlyGuard /> 
+
+      <div className="relative z-0 bg-primary">
+        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
           <Navbar />
           <Hero />
         </div>
         <About />
-        <Education />
-        <Certifications />
         <Experience />
         <Tech />
         <Works />
-        <div className='relative z-0'>
+        <div className="relative z-0">
           <Contact />
           <StarsCanvas />
         </div>
@@ -35,5 +36,4 @@ const App = () => {
   );
 };
 
-// CRITICAL: This line must be present at the very end of your App.jsx file!
 export default App;
