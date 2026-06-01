@@ -6,12 +6,17 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        // This splits your heavy node_modules libraries into separate files
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            // Put Three.js and React Three Fiber into a dedicated 3d bundle
-            if (id.includes('three') || id.includes('@react-three') || id.includes('@react-three/drei')) {
-              return 'threejs-vendor';
+            // Include core react files AND threejs files in the exact same chunk
+            if (
+              id.includes('react') || 
+              id.includes('react-dom') || 
+              id.includes('three') || 
+              id.includes('@react-three') || 
+              id.includes('@react-three/drei')
+            ) {
+              return 'threejs-framework-vendor';
             }
             // Put Framer Motion into its own bundle
             if (id.includes('framer-motion')) {
@@ -23,7 +28,6 @@ export default defineConfig({
         },
       },
     },
-    // Optional: Bump the warning limit slightly since 3D apps are naturally heavy
-    chunkSizeWarningLimit: 800,
+    chunkSizeWarningLimit: 1000,
   },
 });
