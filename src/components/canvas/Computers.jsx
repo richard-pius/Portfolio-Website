@@ -6,7 +6,7 @@ import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
   // Changed from "./desktop_pc..." to "/desktop_pc..." for bulletproof Vite public pathing
-  const computer = useGLTF("/desktop_pc/scene.gltf");
+  const computer = useGLTF("/computer.glb");
 
   return (
     <mesh>
