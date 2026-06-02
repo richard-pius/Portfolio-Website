@@ -77,7 +77,7 @@ A natively written, stable utility application built in Kotlin focusing on fluid
 I am always looking forward to collaborating on open-source initiatives, full-stack web applications, or security audit systems.
 
 * **🌐 Portfolio:** [richardpius.me](https://www.richardpius.me)
-* **💼 LinkedIn:** [linkedin.com/in/richard-pius](https://richardpius.vercel.app) *(Update with your direct URL)*
+* **💼 LinkedIn:** [https://www.linkedin.com/in/richard-pius-developer/](https://www.linkedin.com/in/richard-pius-developer/)
 * **📬 Email:** [richardpius2005@gmail.com](mailto:richardpius2005@gmail.com)
 
 ---
