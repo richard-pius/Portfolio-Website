@@ -154,7 +154,7 @@ const experiences = [
     company_name: "IPSR Solutions Ltd",
     icon: ipsr, 
     iconBg: "#E6DEDD",
-    date: "April 2026 - May 2026",
+    date: "April 2026 - June 2026",
     points: [
       "Gained hands-on infrastructure engineering experience spanning AWS Cloud computing deployments, Linux system administration, and automated configuration management.",
       "Engineered containerized application environments utilizing Docker and designed automated delivery flows leveraging Git, GitHub, and continuous deployment pipelines.",
