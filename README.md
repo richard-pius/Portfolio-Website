@@ -1,86 +1,103 @@
-# Hi there, I'm Richard Pius! 👋
-### Third-Year BCA Student & Aspiring Cyber Security / Cloud DevOps Engineer
+# Richard Pius — Portfolio Website
 
-A dedicated and highly motivated computer enthusiast pursuing a **Bachelor of Computer Applications (BCA)**. I am deeply passionate about modern application architectures, full-stack software development, systems automation, and robust cybersecurity frameworks. I love tackling complex technical puzzles and building production-grade software solutions.
+A production-ready, ultra-minimalist developer portfolio website inspired by the award-winning layout of [bepatrickdavid.com](https://bepatrickdavid.com/). Stark black-and-white, typography-driven, brutalist-refined single-page application built on Next.js 16 and Tailwind CSS v4.
 
----
-
-## 🚀 Professional Milestones (2026)
-
-* **Software Engineering Intern** at *IPSR Solutions Ltd* (Apr 2026 – May 2026)
-    * Designed containerized application environments utilizing **Docker** and built automated CI/CD pipelines.
-    * Configured cloud infrastructure footprints across **AWS Cloud computing** platforms.
-    * Hardened virtualized application networks following standard cybersecurity compliance protocols.
-* **National Service Scheme (NSS) Volunteer** (July 2022 – March 2024)
-    * Led community development programs, coordinated large-scale outreach logistics, and built critical interpersonal teamwork frameworks.
+🔗 Live Demo: [richard-portfolio.vercel.app](https://github.com/richard-pius?tab=repositories) (Placeholder - Replace with your deployment URL)
 
 ---
 
-## 🛠️ Technical Ecosystem
+## 🛠️ Tech Stack & Architecture
 
-| Category | Technologies & Tools |
-| :--- | :--- |
-| **Languages** | `C` `C++` `Python` `Java` `Kotlin` `JavaScript` `TypeScript` `Common Lisp` |
-| **Frameworks & Libs** | `Next.js` `React.js` `Node.js` `TailwindCSS` `Bootstrap 5` `Three.js` `Flutter` `Dart` |
-| **Cloud & DevOps** | `AWS` `Docker` `Ansible` `Git` `GitHub Actions` `Linux (Ubuntu/Shell)` `Web Hosting` |
-| **Databases** | `MySQL` `MongoDB` |
-
----
-
-## 🏆 Verified Credentials & Certifications
-
-* **Gen AI Integrated Advanced System Administration & Containerisation** – *IPSR Solutions Ltd* (May 2026)
-* **ISRA Kerala Chapter Meetup (Vibe Coding Workshop)** – *Information Security Research Association* (May 2026)
-* **AI-Integrated Cloud, DevOps & Cybersecurity (30 Hours)** – *IPSR Solutions Ltd* (May 2026)
-* **Cyber Security Bootcamp: Recon to Exploitation** – *The Blind Hacker (TBH)* (Jan 2026)
-* **Understanding LLMs and Basic Prompting Techniques** – *CodeSignal* (Sep 2025)
-* **Cloud Computing Certification** – *NPTEL* (Nov 2025)
-* **Industry Job Simulations (Cyber Security, Data Analytics, Tech)** – *Deloitte Australia via Forage* (Aug 2025)
-* **Risk & Controllers Job Simulations** – *Goldman Sachs via Forage* (Aug 2025)
-* **Operating Systems and You** – *Google via Coursera* (Ongoing)
+- **Core Framework**: Next.js 16.2.9 (App Router)
+- **Styling Engine**: Tailwind CSS v4.0
+- **Language**: TypeScript
+- **Icons**: Lucide React
+- **Animations**: CSS Keyframes + Intersection Observer API
+- **Deployment**: Vercel (100% Free Tier compatible, fully static export SSG)
 
 ---
 
-## 📁 Featured Open-Source Projects
+## ✨ Features & Optimizations
 
-### 🤖 [Semantic Book Recommender](https://github.com/richard-pius/A-semantic-library-book-recommender)
-A context-aware book recommendation engine developed using Python and Jupyter Notebooks. It uses natural language processing models to extract structural semantic intent and locate items matching custom contextual interests.
+### 1. 🌌 Magnetic Particle Network Background
+- **Dynamic Connection Threads**: Renders a floating coordinate network that draws fine connection lines directly to the mouse cursor, locking onto mouse movements.
+- **Elastic Repulsion Physics**: Backdrop dots accelerate away from the user's cursor and return slowly to their origin paths using smooth drag damping.
+- **3D Scroll Parallax**: Backdrop nodes are mapped to relative Z-axis depths. Scrolling shifts larger nodes faster than smaller background elements, generating a organic sense of perspective.
+- **Mobile Density Throttle**: Automatically cuts particle counts by 50% on screen widths under 768px to preserve target battery and ensure smooth rendering performance.
 
-### 💨 [ClearBreeze Forecast](https://github.com/richard-pius/ClearBreeze-Forecast)
-A responsive and clean cross-platform mobile weather application built entirely from scratch utilizing Flutter and Dart to display real-time global weather conditions.
+### 💻 ASCII Terminal Hero Console
+- Responsive two-column grid on desktop featuring a terminal console panel on the right side.
+- Displays a custom ASCII laptop illustration detailing query runs (`whoami`, `status`) linked to the page loading staggers.
 
-### 🐧 [Simple Linux Distro](https://github.com/richard-pius/simple-linux-distro-)
-A lightweight, text-based customized operating system layout constructed for foundational experimentation, research, and operating system architectural exploration.
-
-### 🧮 [Simple Android Calculator](https://github.com/richard-pius/simple_calculator)
-A natively written, stable utility application built in Kotlin focusing on fluid mobile interface interactions and optimized codebase handling.
-
----
-
-## 📊 GitHub Analytics
-
-<p align="left">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=richard-pius&theme=tokyonight" alt="Richard's Commit Streak" height="180px" />
-</p>
+### ⚡ Performance Enhancements
+- **next/font/google Self-Hosting**: Removed render-blocking Google Font external imports. Font assets are downloaded and hosted locally at compile time, eliminating Cumulative Layout Shift (CLS) and increasing loading speed.
+- **GPU Hardware Acceleration**: Cards and row modules utilize `will-change` and `translate3d` transforms to offload page animation workloads directly to client graphics cards.
+- **Static Site Generation (SSG)**: Pre-renders the complete site structure into lightweight static HTML/CSS at build time, yielding near-instant page delivery.
 
 ---
 
-# 🧭 Acknowledgments & Credits
+## 📂 Project Structure
 
-* Special thanks to **[JavaScript Mastery](https://www.youtube.com/@javascriptmastery)** for providing the foundational 3D component architecture blueprints used to engineer the layout dynamics of my portfolio website. 
-* The video tutorial followed for this project build can be found here: **[Build and Deploy an Amazing 3D Web Developer Portfolio in React JS](https://www.youtube.com/watch?v=0fYi8SGA20k)**.
+```
+richard-portfolio/
+├── app/
+│   ├── globals.css          ← Style configuration, custom staggers, form inputs
+│   ├── layout.tsx           ← Google Font declaration, ParticleBackground wrapper
+│   └── page.tsx             ← Layout organizer
+├── components/
+│   ├── ParticleBackground.tsx ← Canvas-based particle physics
+│   ├── ScrollReveal.tsx     ← Staggered viewport entrance transitions
+│   ├── Header.tsx           ← fixed branding navbar & progress bar
+│   ├── Hero.tsx             ← typography hero & ASCII terminal
+│   ├── About.tsx            ← introductory summary & roles grid
+│   ├── Skills.tsx           ← languages, frameworks, tools list
+│   ├── Education.tsx        ← academic history timeline
+│   ├── Work.tsx             ← work experience timeline with list highlights
+│   ├── Projects.tsx         ← clickable project cards & github marquee link
+│   ├── Certifications.tsx   ← certifications table & awards listings
+│   ├── Footer.tsx           ← client contact form & social hooks
+│   └── MarqueeButton.tsx    ← reusable hover marquee buttons
+```
 
 ---
 
-## 🤝 Let's Connect!
+## 🚀 Local Setup & Installation
 
-I am always looking forward to collaborating on open-source initiatives, full-stack web applications, or security audit systems.
+### Prerequisite
+Ensure you have [Node.js](https://nodejs.org) installed on your system.
 
-* **🌐 Portfolio:** [richardpius.me](https://www.richardpius.me)
-* **💼 LinkedIn:** [https://www.linkedin.com/in/richard-pius-developer/](https://www.linkedin.com/in/richard-pius-developer/)
-* **📬 Email:** [richardpius2005@gmail.com](mailto:richardpius2005@gmail.com)
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/richard-pius/richard-portfolio.git
+   cd richard-portfolio
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser to view the local site.
+
+4. **Verify production compilation**:
+   ```bash
+   npm run build
+   ```
 
 ---
-<p align="center">
-  <small>© 2026 Richard Pius. Open to opportunities and engineering collaborations.</small>
-</p>
+
+## ⚙️ Customization Guide
+
+- **Update personal links**: Open `components/Footer.tsx` and replace the placeholder URLs with your active LinkedIn, GitHub, and email paths.
+- **Edit project list**: Edit the `projects` metadata array inside `components/Projects.tsx` to add your custom repository links.
+- **Edit experiences**: Modify the `experiences` bullet-point entries inside `components/Work.tsx`.
+- **Add certifications**: Update the `certifications` metadata inside `components/Certifications.tsx`.
+
+---
+
+## 📄 License
+This project is open-source and available under the MIT License.
