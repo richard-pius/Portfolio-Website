@@ -1,28 +1,7 @@
 'use client';
 
 import MarqueeButton from './MarqueeButton';
-
-const laptopAscii = `
-        _________________________________
-       /                                 \\
-      |   _____________________________   |
-      |  |                             |  |
-      |  |  richard@pius:~$ whoami     |  |
-      |  |  just a dev & student       |  |
-      |  |                             |  |
-      |  |  richard@pius:~$ status     |  |
-      |  |  building fun software...   |  |
-      |  |                             |  |
-      |  |_____________________________|  |
-      |                                   |
-       \\_________________________________/
-       _________________|_________________
-      /                                   \\
-     /  _________________________________  \\
-    / /                                 \\ \\ \\
-   / /                                   \\ \\ \\
-  (_/_____________________________________\\_)
-`;
+import Terminal from './Terminal';
 
 export default function Hero() {
   return (
@@ -72,19 +51,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column: ASCII Laptop Art Terminal */}
+        {/* Right Column: Interactive OS Terminal Widget */}
         <div className="lg:col-span-5 flex justify-center lg:justify-end animate-stagger-6 opacity-0">
-          <div className="w-full max-w-md bg-black/40 border border-white/10 p-6 rounded-lg font-mono text-[9px] sm:text-xs leading-none text-white/40 select-none hover:text-white hover:border-white/30 transition-all duration-500 shadow-[0_0_30px_rgba(255,255,255,0.02)]">
-            <div className="flex items-center gap-2 mb-4 border-b border-white/5 pb-3">
-              <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-              <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-              <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-              <span className="text-[10px] text-white/20 ml-2 tracking-wider">TERMINAL // RICHARD_PIUS</span>
-            </div>
-            <pre className="whitespace-pre overflow-x-auto leading-tight font-mono text-[8px] sm:text-xs">
-              {laptopAscii}
-            </pre>
-          </div>
+          <Terminal />
         </div>
 
       </div>

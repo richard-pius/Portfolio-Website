@@ -154,13 +154,22 @@ body {
   animation: grain 8s steps(10) infinite;
 }
 
-/* ─── Particle Canvas ─── */
-.particle-canvas {
+/* ─── Static Technical Grid Overlay ─── */
+.static-grid {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-size: 70px 70px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+/* ─── Spotlight Glow ─── */
+.spotlight-glow {
+  position: fixed;
+  inset: 0;
   z-index: 0;
   pointer-events: none;
 }
@@ -690,5 +699,10 @@ body {
   .marquee-btn {
     padding: 0.75rem 1.5rem;
     font-size: 0.7rem;
+  }
+
+  /* Completely static background on mobile devices */
+  .spotlight-glow {
+    display: none !important;
   }
 }
