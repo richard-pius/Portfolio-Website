@@ -1,47 +1,53 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import React from 'react';
+
+const asciiArts = [
+  // Art 1: Mechanical macro pad keyboard
+  ` _________________________________________
+|| Esc ||  1  ||  2  ||  3  ||  4  ||  5  ||
+||-----+-----+-----+-----+-----+-----||
+|| Tab ||  Q  ||  W  ||  E  ||  R  ||  T  ||
+||-----+-----+-----+-----+-----+-----||
+|| Caps||  A  ||  S  ||  D  ||  F  ||  G  ||
+||-----+-----+-----+-----+-----+-----||
+|| Shift  ||  Z  ||  X  ||  C  ||  V  ||
+||--------+-----+-----+-----+---------||
+|| Ctrl || Alt ||    Space    || Enter||
+ \\______\\______\\______________\\_______/`,
+
+  // Art 2: Terminal node / Server blade
+  `  ___________________________________
+ / [  R OS v1.0  ] [ SYSTEM: OK ]    \\
+|====================================|
+| [o] [o] [o] [o] [o] [o] [o] [o]    |
+| [--------------------------------] |
+| [o] [o] [o] [o] [o] [o] [o] [o]    |
+| [--------------------------------] |
+ \\__________________________________/`,
+
+  // Art 3: CPU schematic / ALU Unit
+  `     +---------------------------+
+     |   +---+   +---+   +---+   |
+  ---|   |ALU|   |REG|   |FPU|   |---
+  ---|   +---+   +---+   +---+   |---
+     |                           |
+  ---|       CONTROL  UNIT       |---
+  ---|                           |---
+     +---------------------------+`
+];
 
 export default function ParticleBackground() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-      setVisible(true);
-    };
-
-    const handleMouseLeave = () => {
-      setVisible(false);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseleave', handleMouseLeave);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, []);
+  // Generate 24 items repeating the 3 arts to cover the viewport
+  const items = Array.from({ length: 24 }).map((_, i) => asciiArts[i % asciiArts.length]);
 
   return (
-    <>
-      {/* Static Technical Grid Overlay */}
-      <div className="static-grid" />
-
-      {/* Dynamic Mouse Spotlight Glow */}
-      <div
-        className="spotlight-glow"
-        style={{
-          background: visible
-            ? `radial-gradient(500px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 255, 255, 0.035), transparent 80%)`
-            : 'none',
-        }}
-      />
-
-      {/* Retro Film Grain Overlay */}
-      <div className="grain-overlay" />
-    </>
+    <div className="fixed inset-0 overflow-hidden pointer-events-none select-none z-0 opacity-[0.015] font-mono text-[9px] leading-tight text-white flex flex-wrap gap-16 p-8 justify-around items-center content-around">
+      {items.map((art, idx) => (
+        <pre key={idx} className="m-4">
+          {art}
+        </pre>
+      ))}
+    </div>
   );
 }

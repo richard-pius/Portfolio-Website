@@ -40,6 +40,7 @@ export default function Terminal() {
 
   const inputRef = useRef<HTMLInputElement>(null);
   const logEndRef = useRef<HTMLDivElement>(null);
+  const sessionStartRef = useRef<number>(performance.now());
 
   useEffect(() => {
     logEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -111,6 +112,14 @@ export default function Terminal() {
           { text: '  work       - Employment & DevOps experience' },
           { text: '  contact    - Retrieve contact methods' },
           { text: '  neofetch   - Display specs and ASCII art' },
+          { text: '  pet <cmd>  - Command the corporate background pet' },
+          { text: '  ping       - Ping simulated host network' },
+          { text: '  weather    - Query simulated Kochi weather report' },
+          { text: '  secret     - Decrypt counter-intelligence database' },
+          { text: '  whoami     - Print current user session details' },
+          { text: '  date       - Print current local date/time' },
+          { text: '  uptime     - Display system execution uptime' },
+          { text: '  history    - Display command line history logs' },
           { text: '  clear      - Wipe screen buffer history' },
           { text: '  sudo       - Elevate privileges' }
         );
@@ -211,6 +220,83 @@ export default function Terminal() {
 
       case 'sudo':
         addOutput({ text: 'Error: Privilege escalation blocked. Richard is the only superuser.', type: 'error' });
+        break;
+
+      case 'history':
+        if (history.length === 0) {
+          addOutput({ text: 'No command history recorded.' });
+        } else {
+          addOutput(
+            { text: 'Command history:', type: 'success' },
+            ...history.map((cmdLine, index) => ({ text: `  ${index + 1}  ${cmdLine}` }))
+          );
+        }
+        break;
+
+      case 'date':
+        addOutput({ text: new Date().toString(), type: 'success' });
+        break;
+
+      case 'uptime':
+        const uptimeSecs = Math.floor((performance.now() - sessionStartRef.current) / 1000);
+        const hrs = Math.floor(uptimeSecs / 3600);
+        const mins = Math.floor((uptimeSecs % 3600) / 60);
+        const secs = uptimeSecs % 60;
+        addOutput({ text: `System uptime: ${hrs}h ${mins}m ${secs}s (Running under R OS Core)`, type: 'success' });
+        break;
+
+      case 'whoami':
+        addOutput({ text: 'richard@r-os (uid: 0, gid: 0, role: superuser, head of deep state & military)', type: 'success' });
+        break;
+
+      case 'weather':
+        addOutput(
+          { text: 'ClearBreeze Weather Engine (v2.0.4)', type: 'success' },
+          { text: '  Location: Kochi, Kerala, India' },
+          { text: '  Temperature: 31°C (RealFeel: 35°C)' },
+          { text: '  Humidity: 78% | Sky: Clear Blue Sky' },
+          { text: '  Wind: 14 km/h NE' },
+          { text: '  "Always keep a clear breeze in your forecast!"' }
+        );
+        break;
+
+      case 'secret':
+        addOutput(
+          { text: '🔐 ACCESSING CLASSIFIED COUNTER-INTELLIGENCE DATABASE...', type: 'error' },
+          { text: '  [STATUS] Security Firewall: INTACT' },
+          { text: '  [STATUS] NetWatch intrusion attempts: BLOCKED' },
+          { text: '  [STATUS] R_OS_CORP Relic project: SECURED (Level 10)' },
+          { text: '  [NOTICE] Richard Pius security clearance status: MAXIMAL (OVERLORD)' }
+        );
+        break;
+
+      case 'ping':
+        const host = args[0] || 'r-os.corp';
+        addOutput(
+          { text: `PING ${host} (192.168.1.1): 56 data bytes`, type: 'success' },
+          { text: `64 bytes from 192.168.1.1: icmp_seq=1 time=${Math.floor(Math.random() * 10) + 5}ms` },
+          { text: `64 bytes from 192.168.1.1: icmp_seq=2 time=${Math.floor(Math.random() * 10) + 5}ms` },
+          { text: `64 bytes from 192.168.1.1: icmp_seq=3 time=${Math.floor(Math.random() * 10) + 5}ms` },
+          { text: `--- ${host} ping statistics ---` },
+          { text: '3 packets transmitted, 3 packets received, 0% packet loss' }
+        );
+        break;
+
+      case 'pet':
+        const sub = args[0];
+        if (sub === 'walk') {
+          window.dispatchEvent(new CustomEvent('pet-command', { detail: 'walk' }));
+          addOutput({ text: 'Instructing R_OS_CORP agent to move to new coordinates...', type: 'success' });
+        } else if (sub === 'fact') {
+          window.dispatchEvent(new CustomEvent('pet-command', { detail: 'fact' }));
+          addOutput({ text: 'Forcing R_OS_CORP agent to broadcast security intelligence...', type: 'success' });
+        } else {
+          addOutput(
+            { text: 'Pet Controls Hub:', type: 'success' },
+            { text: '  pet walk  - Force pet agent to wander to new coordinate' },
+            { text: '  pet fact  - Force pet agent to speak a cybersecurity fact' }
+          );
+        }
         break;
 
       case 'gui':

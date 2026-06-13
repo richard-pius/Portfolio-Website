@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import ParticleBackground from "@/components/ParticleBackground";
+import CyberCharacter from "@/components/CyberCharacter";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -53,8 +54,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={spaceGrotesk.variable}>
       <body className="bg-black text-white antialiased relative font-sans">
-        <div className="grain-overlay" />
         <ParticleBackground />
+        <CyberCharacter />
         <div className="relative z-10">
           {children}
         </div>

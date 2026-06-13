@@ -1,15 +1,15 @@
-# Richard Pius — Portfolio Website
+# Richard Pius — Portfolio Website (R OS)
 
-A production-ready, ultra-minimalist developer portfolio website inspired by the award-winning layout of [bepatrickdavid.com](https://bepatrickdavid.com/). Stark black-and-white, typography-driven, brutalist-refined single-page application built on Next.js 16 and Tailwind CSS v4.
+A production-ready, ultra-minimalist developer portfolio website styled as a Cyberpunk-themed custom operating system: **R OS**. Stark black-and-white layout with curated neon accents, typography-driven brutalist design, and a fully interactive background and terminal. Built on Next.js 16 and Tailwind CSS v4.
 
-🔗 Live Demo: [richard-portfolio.vercel.app](https://github.com/richard-pius?tab=repositories) (Placeholder - Replace with your deployment URL)
+🔗 Live Demo: [richard-portfolio.vercel.app](https://github.com/richard-pius?tab=repositories) (Replace with your active deployment URL)
 
 ---
 
 ## 🛠️ Tech Stack & Architecture
 
 - **Core Framework**: Next.js 16.2.9 (App Router)
-- **Styling Engine**: Tailwind CSS v4.0
+- **Styling Engine**: Tailwind CSS v4.0 (Custom Theme Variables)
 - **Language**: TypeScript
 - **Icons**: Lucide React
 - **Animations**: CSS Keyframes + Intersection Observer API
@@ -17,22 +17,51 @@ A production-ready, ultra-minimalist developer portfolio website inspired by the
 
 ---
 
-## ✨ Features & Optimizations
+## ✨ Features & Interactive Elements
 
-### 1. 🌌 Magnetic Particle Network Background
-- **Dynamic Connection Threads**: Renders a floating coordinate network that draws fine connection lines directly to the mouse cursor, locking onto mouse movements.
-- **Elastic Repulsion Physics**: Backdrop dots accelerate away from the user's cursor and return slowly to their origin paths using smooth drag damping.
-- **3D Scroll Parallax**: Backdrop nodes are mapped to relative Z-axis depths. Scrolling shifts larger nodes faster than smaller background elements, generating a organic sense of perspective.
-- **Mobile Density Throttle**: Automatically cuts particle counts by 50% on screen widths under 768px to preserve target battery and ensure smooth rendering performance.
+### 🌌 1. Pure ASCII Key Art Background
+- **Watermark ASCII Art Grid**: A high-performance CSS Flexbox repeating background that displays 24 subtle blocks of custom-crafted ASCII arts at `0.015` opacity:
+  1. **Mechanical Macro Pad**: A retro-themed mechanical keyboard grid detailing standard keys (`Esc`, `Tab`, `Caps`, `Shift`, `Ctrl`, `Alt`, `Space`, `Enter`).
+  2. **Server Blade Node**: A classical server rack layout marking active systems and indicators.
+  3. **ALU/CPU microprocessor**: A detailed schematic layout showing ALU, registers, and floating-point units.
+- **Zero Overhead**: Replaces heavy canvas logic with static preformatted HTML tags, resulting in zero JS loop lag or GPU rendering costs.
 
-### 💻 ASCII Terminal Hero Console
-- Responsive two-column grid on desktop featuring a terminal console panel on the right side.
-- Displays a custom ASCII laptop illustration detailing query runs (`whoami`, `status`) linked to the page loading staggers.
+### 👾 2. Playable Cyberpunk Background Pet (`CyberCharacter.tsx`)
+- **Corpo Boss Persona**: Styled as a chibified corporate boss (receding platinum hair, round gold spectacles, double-breasted jet-black suit with gold buttons, lapels, and a gold tie).
+- **Controls & Playability**:
+  - **PC Controls**: WASD and Arrow Keys move the character around the viewport. Page scrolling is disabled on arrow keys when playing.
+  - **Mouse/Mobile Controls**: Clicking or tapping on the background coordinates instructs the character to walk to that location (fully responsive on mobile).
+  - **Click-Through Safety**: Automatically ignores clicks on navigation bars, interactive links, cards, buttons, scrollbars, and the terminal console to preserve standard portfolio navigation.
+- **Auto-Wandering AI**: If left idle for 4-7 seconds, the pet automatically walks to random coordinates near the bottom of the viewport. Restores auto-wandering after 10s of user inactivity.
+- **Gold-Core Halo (Copyright Safe)**: Features a glowing gold distributed network-topology halo above his head (three circular nodes connected to a central hub core), legally distinct from trademarked emblems.
+- **Cybersecurity Fact Bubble**: Every 18 seconds, a glowing gold-bordered speech bubble (`border-[#ffd700]/35`) pops up above the pet's head, displaying random cybersecurity statistics or tips prefixed with `R_OS_CORP //`.
 
-### ⚡ Performance Enhancements
-- **next/font/google Self-Hosting**: Removed render-blocking Google Font external imports. Font assets are downloaded and hosted locally at compile time, eliminating Cumulative Layout Shift (CLS) and increasing loading speed.
-- **GPU Hardware Acceleration**: Cards and row modules utilize `will-change` and `translate3d` transforms to offload page animation workloads directly to client graphics cards.
-- **Static Site Generation (SSG)**: Pre-renders the complete site structure into lightweight static HTML/CSS at build time, yielding near-instant page delivery.
+### 💻 3. Live OS Terminal Console Widget (`Terminal.tsx`)
+- Fully responsive terminal console running under **R OS v1.0.0 (TTY1)**.
+- **Form Submit Protection**: Intercepts Enter keydowns to prevent browser page reloads.
+- **Operations Parser**: Supports 18 utility commands:
+  - `help`      - Display all available commands.
+  - `about`     - Profile introduction summary.
+  - `skills`    - Technical developer toolkit.
+  - `projects`  - Show projects catalog and instructions.
+  - `open <1-3>`- Open specific project code in a new tab.
+  - `education` - Academic milestones.
+  - `work`      - DevOps experience timeline.
+  - `contact`   - Get in touch contact methods.
+  - `neofetch`  - Display system specs and ASCII art laptop.
+  - `pet <cmd>` - Control background pet (e.g. `pet walk` moves character, `pet fact` forces speech).
+  - `ping`      - Simulated icmp ping latency reports.
+  - `weather`   - Simulated weather report referencing the *ClearBreeze Weather Engine*.
+  - `secret`    - Decrypts classified counter-intelligence logs.
+  - `whoami`    - Print current user session details.
+  - `date`      - Print current local date/time.
+  - `uptime`    - Display system running uptime since page load.
+  - `history`   - Display command line history logs.
+  - `clear`     - Wipe terminal screen buffer.
+  - `sudo`      - Elevate privileges (blocked by default).
+
+### 🎨 4. Custom Themed Scrollbar
+- Replaces standard scrollbars with a custom `6px` wide gold-to-crimson gradient thumb (`linear-gradient(180deg, #ffd700, #ff0055)`) featuring an active glowing border box that intensifies on hover.
 
 ---
 
@@ -41,11 +70,12 @@ A production-ready, ultra-minimalist developer portfolio website inspired by the
 ```
 richard-portfolio/
 ├── app/
-│   ├── globals.css          ← Style configuration, custom staggers, form inputs
-│   ├── layout.tsx           ← Google Font declaration, ParticleBackground wrapper
+│   ├── globals.css          ← Styles, custom animations, custom scrollbar
+│   ├── layout.tsx           ← Google Font imports, background character rendering wrappers
 │   └── page.tsx             ← Layout organizer
 ├── components/
-│   ├── ParticleBackground.tsx ← Canvas-based particle physics
+│   ├── ParticleBackground.tsx ← Static repeating ASCII key art grid background
+│   ├── CyberCharacter.tsx   ← Playable background pet character (SVG and interaction hooks)
 │   ├── ScrollReveal.tsx     ← Staggered viewport entrance transitions
 │   ├── Header.tsx           ← fixed branding navbar & progress bar
 │   ├── Hero.tsx             ← typography hero & ASCII terminal
@@ -55,8 +85,7 @@ richard-portfolio/
 │   ├── Work.tsx             ← work experience timeline with list highlights
 │   ├── Projects.tsx         ← clickable project cards & github marquee link
 │   ├── Certifications.tsx   ← certifications table & awards listings
-│   ├── Footer.tsx           ← client contact form & social hooks
-│   └── MarqueeButton.tsx    ← reusable hover marquee buttons
+│   └── Footer.tsx           ← client contact form & social hooks
 ```
 
 ---
