@@ -2,7 +2,7 @@
 
 A production-ready, ultra-minimalist developer portfolio website styled as a Cyberpunk-themed custom operating system: **R OS**. Stark black-and-white layout with curated neon accents, typography-driven brutalist design, and a fully interactive background and terminal. Built on Next.js 16 and Tailwind CSS v4.
 
-🔗 Live Demo: [https://richardpius.vercel.app/](https://richardpius.vercel.app/)
+🔗 Live Demo: [richard-portfolio.vercel.app](https://github.com/richard-pius?tab=repositories) (Replace with your active deployment URL)
 
 ---
 

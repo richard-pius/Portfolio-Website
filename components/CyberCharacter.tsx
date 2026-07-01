@@ -12,20 +12,20 @@ const CharacterSVG = ({ isWalking, walkFrame, direction }: { isWalking: boolean;
       height="64" 
       viewBox="0 0 48 64" 
       style={{ transform: `scaleX(${scaleX})`, transition: 'transform 0.15s' }}
-      className="filter drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]"
+      className="filter drop-shadow-[0_0_10px_rgba(0,243,255,0.7)]"
     >
-      {/* Custom 3-Node Network Core Halo (glowing gold) - Copyright Safe alternative to Arasaka */}
+      {/* Custom 3-Node Network Core Halo (glowing cyan) - Copyright Safe alternative to Arasaka */}
       <g transform="translate(24, 6)" opacity="0.95" className="animate-pulse">
         {/* Outer Ring */}
-        <circle cx="0" cy="0" r="5.5" fill="none" stroke="#ffd700" strokeWidth="0.75" />
+        <circle cx="0" cy="0" r="5.5" fill="none" stroke="#00f3ff" strokeWidth="0.75" />
         {/* Network connections */}
-        <line x1="0" y1="0" x2="0" y2="-3" stroke="#ffd700" strokeWidth="0.75" />
-        <line x1="0" y1="0" x2="-2.5" y2="1.5" stroke="#ffd700" strokeWidth="0.75" />
-        <line x1="0" y1="0" x2="2.5" y2="1.5" stroke="#ffd700" strokeWidth="0.75" />
+        <line x1="0" y1="0" x2="0" y2="-3" stroke="#00f3ff" strokeWidth="0.75" />
+        <line x1="0" y1="0" x2="-2.5" y2="1.5" stroke="#00f3ff" strokeWidth="0.75" />
+        <line x1="0" y1="0" x2="2.5" y2="1.5" stroke="#00f3ff" strokeWidth="0.75" />
         {/* Network nodes (dots) */}
-        <circle cx="0" cy="-3" r="1.2" fill="#ffd700" />
-        <circle cx="-2.5" cy="1.5" r="1.2" fill="#ffd700" />
-        <circle cx="2.5" cy="1.5" r="1.2" fill="#ffd700" />
+        <circle cx="0" cy="-3" r="1.2" fill="#00f3ff" />
+        <circle cx="-2.5" cy="1.5" r="1.2" fill="#00f3ff" />
+        <circle cx="2.5" cy="1.5" r="1.2" fill="#00f3ff" />
         {/* Center hub core */}
         <circle cx="0" cy="0" r="0.75" fill="#ffffff" />
       </g>
@@ -36,37 +36,37 @@ const CharacterSVG = ({ isWalking, walkFrame, direction }: { isWalking: boolean;
       {/* Chibi Head (with taller forehead for receding hair) */}
       <rect x="15" y="17" width="18" height="15" rx="5" fill="#fcfcfc" stroke="#111" strokeWidth="1.5" />
       
-      {/* Eyes & Round Gold Spectacles */}
+      {/* Eyes & Round Glasses */}
       <circle cx="20" cy="25" r="1" fill="#111" />
       <circle cx="28" cy="25" r="1" fill="#111" />
-      {/* Gold Rimmed Round Glasses */}
-      <circle cx="20" cy="25" r="2.5" fill="none" stroke="#ffd700" strokeWidth="1" />
-      <circle cx="28" cy="25" r="2.5" fill="none" stroke="#ffd700" strokeWidth="1" />
-      <line x1="22.5" y1="25" x2="25.5" y2="25" stroke="#ffd700" strokeWidth="1" />
+      {/* Cyan Rimmed Round Glasses */}
+      <circle cx="20" cy="25" r="2.5" fill="none" stroke="#00f3ff" strokeWidth="1" />
+      <circle cx="28" cy="25" r="2.5" fill="none" stroke="#00f3ff" strokeWidth="1" />
+      <line x1="22.5" y1="25" x2="25.5" y2="25" stroke="#00f3ff" strokeWidth="1" />
       
       {/* Cyberware cheek seams */}
-      <path d="M 17,27 L 17,30 L 19,30" stroke="#ffd700" strokeWidth="0.5" fill="none" opacity="0.6" />
-      <path d="M 31,27 L 31,30 L 29,30" stroke="#ffd700" strokeWidth="0.5" fill="none" opacity="0.6" />
+      <path d="M 17,27 L 17,30 L 19,30" stroke="#ff00a0" strokeWidth="0.5" fill="none" opacity="0.6" />
+      <path d="M 31,27 L 31,30 L 29,30" stroke="#ff00a0" strokeWidth="0.5" fill="none" opacity="0.6" />
       
       {/* Slicked Back Hair (Front/Bangs) - High receding hairline */}
       <path d="M 14,17 Q 18,12 21,15 Q 24,10 27,15 Q 30,12 34,17 Q 30,6 18,9 Z" fill="#d2d2d2" />
-      <path d="M 23,13 Q 25,9 27,12" stroke="#ff0055" strokeWidth="1" fill="none" opacity="0.6" />
+      <path d="M 23,13 Q 25,9 27,12" stroke="#ff00a0" strokeWidth="1" fill="none" opacity="0.6" />
       
       {/* White Inner Shirt Collar */}
       <path d="M 17,32 L 31,32 L 31,37 L 17,37 Z" fill="#ffffff" stroke="#111" strokeWidth="1.5" />
-      {/* Golden/Yellow Tie */}
-      <path d="M 23.5,37 L 24.5,37 L 25,42 L 24,44 L 23,42 Z" fill="#ffd700" stroke="#c59b27" strokeWidth="0.5" />
+      {/* Purple Tie */}
+      <path d="M 23.5,37 L 24.5,37 L 25,42 L 24,44 L 23,42 Z" fill="#ff00a0" stroke="#a60068" strokeWidth="0.5" />
 
       {/* Double-Breasted Jet-Black Corporate Suit Jacket */}
-      <path d="M 15,32 L 33,32 L 35,46 L 13,46 Z" fill="#111111" stroke="#ffd700" strokeWidth="1" />
-      {/* Gold Suit Lapel linings */}
-      <path d="M 17,32 L 21,39" stroke="#ffd700" strokeWidth="0.75" />
-      <path d="M 31,32 L 27,39" stroke="#ffd700" strokeWidth="0.75" />
-      {/* Double Breasted Buttons */}
-      <circle cx="21" cy="40" r="0.75" fill="#ffd700" />
-      <circle cx="27" cy="40" r="0.75" fill="#ffd700" />
-      <circle cx="21" cy="43" r="0.75" fill="#ffd700" />
-      <circle cx="27" cy="43" r="0.75" fill="#ffd700" />
+      <path d="M 15,32 L 33,32 L 35,46 L 13,46 Z" fill="#111111" stroke="#00f3ff" strokeWidth="1" />
+      {/* Cyan Suit Lapel linings */}
+      <path d="M 17,32 L 21,39" stroke="#00f3ff" strokeWidth="0.75" />
+      <path d="M 31,32 L 27,39" stroke="#00f3ff" strokeWidth="0.75" />
+      {/* Cyan Double Breasted Buttons */}
+      <circle cx="21" cy="40" r="0.75" fill="#00f3ff" />
+      <circle cx="27" cy="40" r="0.75" fill="#00f3ff" />
+      <circle cx="21" cy="43" r="0.75" fill="#00f3ff" />
+      <circle cx="27" cy="43" r="0.75" fill="#00f3ff" />
 
       {/* Stance: Hands Held Behind Back (Sleeves draping back) */}
       <path d="M 14,34 C 11,38 11,43 13,45" stroke="#111111" strokeWidth="3.5" strokeLinecap="round" />
@@ -109,6 +109,7 @@ export default function CyberCharacter() {
   const [targetPos, setTargetPos] = useState<{ x: number; y: number } | null>(null);
   const [isManualTarget, setIsManualTarget] = useState(false);
   const [fact, setFact] = useState<string | null>(null);
+  const [visible, setVisible] = useState(true);
 
   const keysPressed = useRef<Set<string>>(new Set());
   const factTimeoutRef = useRef<number | null>(null);
@@ -372,6 +373,10 @@ export default function CyberCharacter() {
           setFact(null);
           factTimeoutRef.current = null;
         }, 6000);
+      } else if (command === 'hide') {
+        setVisible(false);
+      } else if (command === 'show') {
+        setVisible(true);
       }
     };
 
@@ -379,7 +384,7 @@ export default function CyberCharacter() {
     return () => window.removeEventListener('pet-command', handlePetCommand);
   }, [mounted]);
 
-  if (!mounted) return null;
+  if (!mounted || !visible) return null;
 
   return (
     <div className="fixed inset-0 pointer-events-none z-30 overflow-hidden">
@@ -396,13 +401,13 @@ export default function CyberCharacter() {
           
           {/* Fact Speech Bubble */}
           {fact && (
-            <div className="absolute bottom-[75px] left-1/2 -translate-x-1/2 w-48 sm:w-56 p-3 bg-black/95 border border-[#ffd700]/35 rounded font-mono text-[9px] sm:text-[10px] leading-normal text-white shadow-[0_0_15px_rgba(255,215,0,0.25)] animate-fade-in z-50 select-text pointer-events-auto">
+            <div className="absolute bottom-[75px] left-1/2 -translate-x-1/2 w-48 sm:w-56 p-3 bg-black/95 border border-[#00f3ff]/35 rounded font-mono text-[9px] sm:text-[10px] leading-normal text-white shadow-[0_0_15px_rgba(0,243,255,0.25)] animate-fade-in z-50 select-text pointer-events-auto">
               <div className="relative">
-                <span className="text-[#ffd700] font-bold block mb-1">R_OS_CORP //</span>
+                <span className="text-[#00f3ff] font-bold block mb-1">R_OS_CORP //</span>
                 {fact}
                 {/* Speech Bubble Arrow */}
                 <div className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 w-0 h-0 border-8 border-transparent border-t-black" />
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-0 h-0 border-8 border-transparent border-t-[#ffd700]/30 -z-10" />
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-0 h-0 border-8 border-transparent border-t-[#00f3ff]/30 -z-10" />
               </div>
             </div>
           )}
@@ -411,8 +416,8 @@ export default function CyberCharacter() {
           <CharacterSVG isWalking={isWalking} walkFrame={walkFrame} direction={direction} />
           
           {/* Label Tooltip */}
-          <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-mono text-[6px] sm:text-[7px] text-[#ffd700]/95 tracking-wider whitespace-nowrap bg-black/95 px-1.5 py-0.5 rounded border border-[#ffd700]/30 uppercase shadow-[0_0_8px_rgba(255,215,0,0.15)] flex flex-col items-center gap-0.5">
-            <span className="font-bold text-[#ffd700]">Richard Pius // Head of Deep State & Military</span>
+          <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-mono text-[6px] sm:text-[7px] text-[#00f3ff]/95 tracking-wider whitespace-nowrap bg-black/95 px-1.5 py-0.5 rounded border border-[#00f3ff]/30 uppercase shadow-[0_0_8px_rgba(0,243,255,0.15)] flex flex-col items-center gap-0.5">
+            <span className="font-bold text-[#00f3ff]">Richard Pius // Head of Deep State & Military</span>
             <span className="text-white/40 text-[5px] sm:text-[6px]">WASD / Arrow Keys / Click to Move</span>
           </div>
         </div>

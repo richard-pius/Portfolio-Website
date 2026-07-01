@@ -34,24 +34,24 @@ const projects = [
 export default function Projects() {
   return (
     <section id="projects" className="section-padding px-6 md:px-12 lg:px-20 relative z-10">
-      <div className="max-w-6xl">
+      <div className="max-w-6xl mx-auto">
         {/* Section label */}
         <ScrollReveal>
           <div className="flex items-center gap-4 mb-16 md:mb-24">
-            <Asterisk className="w-6 h-6 star-spin" strokeWidth={1.5} />
-            <span className="text-body-lg text-white/50">My Work</span>
+            <Asterisk className="w-5 h-5 star-spin text-[#00f3ff]" strokeWidth={1.5} />
+            <span className="text-body-lg text-white/50 font-mono tracking-wider">// CODE LABS & PORTFOLIO</span>
           </div>
         </ScrollReveal>
 
         {/* Section heading */}
         <ScrollReveal animation="slide-left">
           <h2 className="text-heading mb-16 md:mb-24">
-            Projects<span className="text-white/20">.</span>
+            Projects<span className="text-[#ff00a0]">.</span>
           </h2>
         </ScrollReveal>
 
         {/* Project list */}
-        <div className="space-y-4">
+        <div className="space-y-6">
           {projects.map((project, idx) => (
             <ScrollReveal key={project.index} delay={idx * 100} animation="scale-up">
               <a
@@ -62,20 +62,20 @@ export default function Projects() {
               >
                 <div className="project-content flex flex-col md:flex-row md:items-start gap-4 md:gap-12">
                   {/* Index */}
-                  <span className="project-index text-xs tracking-[0.2em] uppercase text-white/30 font-medium md:pt-2 transition-colors duration-400">
-                    {project.index}
+                  <span className="project-index font-mono text-xs tracking-[0.2em] uppercase text-white/35 font-medium md:pt-2 transition-colors duration-300">
+                    {project.index} //
                   </span>
 
                   {/* Content */}
                   <div className="flex-1">
                     <div className="flex items-start justify-between gap-4">
-                      <h3 className="text-xl md:text-3xl lg:text-4xl font-bold uppercase tracking-tight leading-none">
+                      <h3 className="text-xl md:text-2xl lg:text-3xl font-bold uppercase tracking-tight leading-none group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#00f3ff] group-hover:to-[#ff00a0] transition-all duration-300">
                         {project.title}
                       </h3>
                       <ArrowUpRight className="project-arrow w-5 h-5 md:w-6 md:h-6 flex-shrink-0 text-white/30 transition-all duration-300" />
                     </div>
 
-                    <p className="text-sm md:text-base uppercase tracking-[0.02em] text-white/50 mt-4 leading-relaxed max-w-2xl transition-colors duration-400 group-hover:text-black/60">
+                    <p className="text-xs md:text-sm uppercase tracking-[0.02em] text-white/50 mt-4 leading-relaxed max-w-2xl transition-colors duration-300 group-hover:text-white/80">
                       {project.description}
                     </p>
 
@@ -84,7 +84,7 @@ export default function Projects() {
                       {project.tech.map((t) => (
                         <span
                           key={t}
-                          className="project-tech text-[0.65rem] tracking-[0.1em] uppercase border border-white/20 px-3 py-1 transition-colors duration-400"
+                          className="project-tech font-mono text-[9px] tracking-[0.1em] uppercase border border-white/5 bg-white/5 text-white/50 px-2.5 py-1 transition-all duration-300 group-hover:border-[#00f3ff]/30 group-hover:text-[#00f3ff]"
                         >
                           {t}
                         </span>
@@ -103,7 +103,7 @@ export default function Projects() {
             <MarqueeButton
               href="https://github.com/richard-pius?tab=repositories"
               target="_blank"
-              className="w-full md:w-auto"
+              className="w-full md:w-auto !border-[#ff00a0] !text-[#ff00a0] hover:!bg-[#ff00a0] hover:!text-white"
             >
               More Repositories on GitHub
             </MarqueeButton>

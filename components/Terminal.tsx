@@ -29,7 +29,7 @@ const laptopAscii = `
   (_/_____________________________________\\_)
 `;
 
-export default function Terminal() {
+export default function Terminal({ isFullscreen = false }: { isFullscreen?: boolean }) {
   const [history, setHistory] = useState<string[]>([]);
   const [historyIdx, setHistoryIdx] = useState<number>(-1);
   const [inputVal, setInputVal] = useState<string>('');
@@ -112,7 +112,7 @@ export default function Terminal() {
           { text: '  work       - Employment & DevOps experience' },
           { text: '  contact    - Retrieve contact methods' },
           { text: '  neofetch   - Display specs and ASCII art' },
-          { text: '  pet <cmd>  - Command the corporate background pet' },
+          { text: '  pet <cmd>  - Command background pet (walk, fact, hide, show)' },
           { text: '  ping       - Ping simulated host network' },
           { text: '  weather    - Query simulated Kochi weather report' },
           { text: '  secret     - Decrypt counter-intelligence database' },
@@ -185,7 +185,7 @@ export default function Terminal() {
           { text: '    • AWS clouds configurations and Linux administration' },
           { text: '    • Containerized environments (Docker) & automated Git pipelines' },
           { text: '  National Service Scheme (NSS) — Volunteer' },
-          { text: '    July 2024 — Present' }
+          { text: '    September 2022 — March 2024' }
         );
         break;
 
@@ -290,17 +290,31 @@ export default function Terminal() {
         } else if (sub === 'fact') {
           window.dispatchEvent(new CustomEvent('pet-command', { detail: 'fact' }));
           addOutput({ text: 'Forcing R_OS_CORP agent to broadcast security intelligence...', type: 'success' });
+        } else if (sub === 'hide') {
+          window.dispatchEvent(new CustomEvent('pet-command', { detail: 'hide' }));
+          addOutput({ text: 'Cloak activated. Background pet character hidden.', type: 'success' });
+        } else if (sub === 'show') {
+          window.dispatchEvent(new CustomEvent('pet-command', { detail: 'show' }));
+          addOutput({ text: 'Cloak deactivated. Background pet character visible.', type: 'success' });
         } else {
           addOutput(
             { text: 'Pet Controls Hub:', type: 'success' },
             { text: '  pet walk  - Force pet agent to wander to new coordinate' },
-            { text: '  pet fact  - Force pet agent to speak a cybersecurity fact' }
+            { text: '  pet fact  - Force pet agent to speak a cybersecurity fact' },
+            { text: '  pet hide  - Hide/cloak the background pet agent' },
+            { text: '  pet show  - Show the background pet agent' }
           );
         }
         break;
 
+      case 'cli':
+        window.dispatchEvent(new CustomEvent('switch-os-mode', { detail: 'cli' }));
+        addOutput({ text: 'Switching system to full-screen Command Line Interface...', type: 'success' });
+        break;
+
       case 'gui':
-        addOutput({ text: 'System Notice: GUI layer already loaded. Scroll down to browse visual sections.', type: 'success' });
+        window.dispatchEvent(new CustomEvent('switch-os-mode', { detail: 'gui' }));
+        addOutput({ text: 'System Notice: Booting Graphical User Interface desktop environment...', type: 'success' });
         break;
 
       default:
@@ -312,32 +326,42 @@ export default function Terminal() {
   return (
     <div
       onClick={focusInput}
-      className="w-full max-w-lg bg-black/60 border border-white/10 p-5 rounded-lg font-mono text-[10px] sm:text-xs leading-relaxed text-white/50 cursor-text select-none hover:border-white/20 transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.015)]"
+      className={`w-full font-mono text-[10px] sm:text-xs leading-relaxed text-white/70 cursor-text select-none transition-all duration-500 ${
+        isFullscreen
+          ? 'h-full bg-black flex flex-col p-4'
+          : 'max-w-lg bg-black/75 border border-white/10 hover:border-[#00f3ff]/30 p-5 rounded shadow-[0_20px_50px_rgba(0,0,0,0.7),_0_0_30px_rgba(0,243,255,0.02)]'
+      }`}
     >
       {/* Title bar */}
-      <div className="flex items-center justify-between mb-4 border-b border-white/5 pb-3">
-        <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-          <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-          <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-          <span className="text-[10px] text-white/20 ml-2 tracking-wider">R OS // TTY1</span>
+      {!isFullscreen && (
+        <div className="flex items-center justify-between mb-4 border-b border-white/5 pb-3">
+          <div className="flex items-center gap-2">
+            <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+            <div className="w-2.5 h-2.5 rounded-full bg-[#ff00a0]/80" />
+            <div className="w-2.5 h-2.5 rounded-full bg-[#00f3ff]/80" />
+            <span className="text-[10px] text-[#00f3ff] ml-2 tracking-wider font-semibold">R OS // TTY1</span>
+          </div>
+          <span className="text-[9px] text-[#ff00a0] uppercase tracking-widest font-bold">Interactive Shell</span>
         </div>
-        <span className="text-[9px] text-white/10 uppercase tracking-widest">Interactive Terminal</span>
-      </div>
+      )}
 
       {/* Terminal log window */}
-      <div className="max-h-[260px] overflow-y-auto space-y-1 pr-2 scrollbar-thin">
+      <div 
+        className={`${
+          isFullscreen ? 'flex-1 overflow-y-auto' : 'max-h-[260px] overflow-y-auto'
+        } space-y-1.5 pr-2 scrollbar-thin`}
+      >
         {lines.map((line, idx) => (
           <div
             key={idx}
             className={`whitespace-pre-wrap break-all ${
               line.type === 'input'
-                ? 'text-white'
+                ? 'text-[#00f3ff]'
                 : line.type === 'error'
-                ? 'text-red-400'
+                ? 'text-[#ff00a0] font-semibold'
                 : line.type === 'success'
                 ? 'text-white font-semibold'
-                : 'text-white/50'
+                : 'text-white/60'
             }`}
           >
             {line.text}
@@ -348,7 +372,7 @@ export default function Terminal() {
 
       {/* Input prompt line */}
       <div className="flex items-center gap-2 mt-3 pt-3 border-t border-white/5 text-white">
-        <span className="text-white/40 flex-shrink-0">richard@pius:~$</span>
+        <span className="text-[#00f3ff]/60 font-semibold flex-shrink-0">richard@r-os:~$</span>
         <div className="relative flex-1 flex items-center">
           <input
             ref={inputRef}
@@ -356,7 +380,7 @@ export default function Terminal() {
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="w-full bg-transparent border-none outline-none font-mono text-white text-[10px] sm:text-xs p-0 caret-white selection:bg-white/20"
+            className="w-full bg-transparent border-none outline-none font-mono text-[#00f3ff] text-[10px] sm:text-xs p-0 caret-[#00f3ff] selection:bg-white/10"
             autoComplete="off"
             autoCorrect="off"
             autoCapitalize="off"

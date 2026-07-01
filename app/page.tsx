@@ -1,27 +1,19 @@
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Skills from '@/components/Skills';
-import Education from '@/components/Education';
-import Work from '@/components/Work';
-import Projects from '@/components/Projects';
-import Certifications from '@/components/Certifications';
-import Footer from '@/components/Footer';
+'use client';
+
+import React, { useState } from 'react';
+import BootLoader from '@/components/BootLoader';
+import Desktop from '@/components/Desktop';
 
 export default function Home() {
+  const [isBooted, setIsBooted] = useState(false);
+
   return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Education />
-        <Work />
-        <Projects />
-        <Certifications />
-      </main>
-      <Footer />
-    </>
+    <main className="w-screen h-screen overflow-hidden relative">
+      {!isBooted ? (
+        <BootLoader onComplete={() => setIsBooted(true)} />
+      ) : (
+        <Desktop />
+      )}
+    </main>
   );
 }

@@ -55,7 +55,6 @@ export default function RootLayout({
     <html lang="en" className={spaceGrotesk.variable}>
       <body className="bg-black text-white antialiased relative font-sans">
         <ParticleBackground />
-        <CyberCharacter />
         <div className="relative z-10">
           {children}
         </div>
