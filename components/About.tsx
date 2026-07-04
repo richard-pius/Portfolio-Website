@@ -1,120 +1,114 @@
 'use client';
 
-import ScrollReveal from './ScrollReveal';
-import { Code, Globe, Smartphone, ShieldCheck } from 'lucide-react';
-
-const roles = [
-  {
-    icon: Code,
-    title: 'Software Developer',
-    accent: '#00f3ff',
-  },
-  {
-    icon: Globe,
-    title: 'Full Stack Web Developer',
-    accent: '#ff00a0',
-  },
-  {
-    icon: Smartphone,
-    title: 'Android & Mobile Developer',
-    accent: '#00f3ff',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Cyber Security Enthusiast',
-    accent: '#ff00a0',
-  },
-];
+import React from 'react';
+import { Briefcase, GraduationCap } from 'lucide-react';
+import { skills, experiences, educationList } from '../constants/data';
 
 export default function About() {
   return (
-    <section id="about" className="section-padding px-6 md:px-12 lg:px-20 relative z-10">
-      <div className="max-w-6xl mx-auto">
-        {/* Section label */}
-        <ScrollReveal>
-          <span className="text-xs tracking-[0.3em] uppercase text-[#00f3ff] font-mono block mb-4">
-            // INTRODUCTION
-          </span>
-        </ScrollReveal>
-
-        {/* Section heading */}
-        <ScrollReveal animation="slide-left">
-          <h2 className="text-heading mb-12 md:mb-16">
-            Overview<span className="text-[#ff00a0]">.</span>
-          </h2>
-        </ScrollReveal>
-
-        {/* Split Grid for Bio & Cyber Graphic */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16 md:mb-24">
-          <div className="lg:col-span-7">
-            <ScrollReveal delay={100}>
-              <p className="text-body-lg text-white/80 leading-relaxed mb-6">
-                I&apos;m Richard Pius, a third year BCA student passionate about computer science. As a dedicated computer enthusiast, I&apos;m eager to explore the world of programming and software development.
-              </p>
-              <p className="text-sm uppercase tracking-[0.05em] text-white/45 leading-relaxed max-w-2xl font-mono">
-                Focused on engineering robust systems, writing clean code, and securing network topologies. Currently delving into full-stack modern frameworks, AWS cloud systems, and cybersecurity paradigms.
-              </p>
-            </ScrollReveal>
+    <section id="about" className="py-24 px-6 border-t border-zinc-100 dark:border-zinc-900 transition-colors duration-300">
+      <div className="mx-auto max-w-5xl space-y-20">
+        
+        {/* About & Skills split layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Summary */}
+          <div className="lg:col-span-5 space-y-4">
+            <span className="text-[10px] font-mono tracking-widest text-indigo-500 uppercase font-bold">// Overview</span>
+            <h2 className="text-3xl font-bold text-zinc-900 dark:text-white tracking-tight">Biography</h2>
+            <p className="text-zinc-600 dark:text-zinc-400 font-light leading-relaxed">
+              I am a dedicated BCA student who loves mapping systems, full stack development, and server infrastructures. Eager to solve complex challenges and implement continuous delivery pipelines.
+            </p>
           </div>
-          
-          {/* Cybernetic Core SVG Graphic */}
-          <div className="lg:col-span-5 flex justify-center">
-            <ScrollReveal delay={200} animation="scale-up" className="w-full max-w-[320px]">
-              <div className="border border-[#00f3ff]/10 bg-black/60 p-6 rounded relative overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.6)]">
-                {/* corner details */}
-                <div className="absolute top-2 left-2 font-mono text-[7px] text-[#00f3ff]/40">NODE_ID // 0x7E1A</div>
-                <div className="absolute bottom-2 right-2 font-mono text-[7px] text-[#ff00a0]/40">R_OS_CORE // OK</div>
-                
-                {/* SVG Core */}
-                <svg viewBox="0 0 100 100" className="w-full h-44 drop-shadow-[0_0_15px_rgba(0,243,255,0.15)]">
-                  {/* Rotating Ring 1 */}
-                  <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(0, 243, 255, 0.25)" strokeWidth="0.75" strokeDasharray="10 5 2 5" className="animate-spin-slow" />
-                  
-                  {/* Rotating Ring 2 (Reverse) */}
-                  <circle cx="50" cy="50" r="32" fill="none" stroke="rgba(255, 0, 160, 0.3)" strokeWidth="0.75" strokeDasharray="5 15" style={{ animation: 'spinSlow 10s linear infinite reverse' }} />
-                  
-                  {/* Circuit Nodes */}
-                  <line x1="50" y1="12" x2="50" y2="88" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" />
-                  <line x1="12" y1="50" x2="88" y2="50" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" />
-                  
-                  {/* Glowing center node */}
-                  <circle cx="50" cy="50" r="8" fill="rgba(0, 243, 255, 0.05)" stroke="#00f3ff" strokeWidth="1" className="animate-pulse" />
-                  <circle cx="50" cy="50" r="4" fill="#ff00a0" />
-                  
-                  {/* Satellites */}
-                  <circle cx="50" cy="18" r="2.5" fill="#00f3ff" className="animate-pulse" />
-                  <circle cx="50" cy="82" r="2.5" fill="#00f3ff" className="animate-pulse" />
-                  <circle cx="18" cy="50" r="2.5" fill="#ff00a0" />
-                  <circle cx="82" cy="50" r="2.5" fill="#ff00a0" />
-                  
-                  {/* Data waves */}
-                  <circle cx="50" cy="50" r="24" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
-                </svg>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
 
-        {/* Role Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {roles.map((role, idx) => (
-            <ScrollReveal key={role.title} delay={idx * 100} animation="scale-up">
-              <div className="role-card">
-                <div className="role-card-content">
-                  <div 
-                    className="role-icon w-10 h-10 border border-white/10 rounded-sm flex items-center justify-center mb-6 transition-all duration-300"
-                    style={{ color: role.accent }}
-                  >
-                    <role.icon className="w-4 h-4" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="text-xs uppercase tracking-[0.1em] font-semibold text-white/90">
-                    {role.title}
-                  </h3>
+          {/* Skills Badges */}
+          <div className="lg:col-span-7 space-y-6">
+            <span className="text-[10px] font-mono tracking-widest text-indigo-500 uppercase font-bold">// Skill Set</span>
+            
+            <div className="space-y-4">
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Languages</h4>
+                <div className="flex flex-wrap gap-2">
+                  {skills.languages.map(lang => (
+                    <span key={lang} className="text-xs px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300">{lang}</span>
+                  ))}
                 </div>
               </div>
-            </ScrollReveal>
-          ))}
+
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Frameworks</h4>
+                <div className="flex flex-wrap gap-2">
+                  {skills.frameworks.map(frame => (
+                    <span key={frame} className="text-xs px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300">{frame}</span>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Tools & Databases</h4>
+                <div className="flex flex-wrap gap-2">
+                  {skills.tools.map(tool => (
+                    <span key={tool} className="text-xs px-3 py-1 rounded-full border border-indigo-200 dark:border-indigo-950/40 bg-indigo-50/50 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-300">{tool}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* Work & Education side-by-side grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-10">
+          
+          {/* Work Experience */}
+          <div id="experience" className="space-y-6">
+            <div className="flex items-center gap-3">
+              <Briefcase size={20} className="text-indigo-500" />
+              <h3 className="text-xl font-bold text-zinc-900 dark:text-white tracking-tight">Work Experience</h3>
+            </div>
+            
+            <div className="space-y-8 relative before:absolute before:left-3.5 before:top-2 before:bottom-2 before:w-[1px] before:bg-zinc-200 dark:before:bg-zinc-800">
+              {experiences.map((exp, idx) => (
+                <div key={idx} className="relative pl-8 space-y-2">
+                  {/* Timeline point */}
+                  <span className="absolute left-2.5 top-1.5 w-2.5 h-2.5 rounded-full border-2 border-indigo-500 bg-white dark:bg-zinc-950" />
+                  
+                  <span className="text-[10px] font-mono text-zinc-400">{exp.period}</span>
+                  <h4 className="text-base font-bold text-zinc-950 dark:text-white">{exp.role}</h4>
+                  <p className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wide">{exp.company}</p>
+                  
+                  <ul className="list-disc pl-4 text-xs text-zinc-500 dark:text-zinc-400 space-y-1 font-light leading-relaxed">
+                    {exp.description.map((desc, i) => (
+                      <li key={i}>{desc}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Education timeline */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <GraduationCap size={20} className="text-indigo-500" />
+              <h3 className="text-xl font-bold text-zinc-900 dark:text-white tracking-tight">Education</h3>
+            </div>
+            
+            <div className="space-y-8 relative before:absolute before:left-3.5 before:top-2 before:bottom-2 before:w-[1px] before:bg-zinc-200 dark:before:bg-zinc-800">
+              {educationList.map((edu, idx) => (
+                <div key={idx} className="relative pl-8 space-y-1.5">
+                  <span className="absolute left-2.5 top-1.5 w-2.5 h-2.5 rounded-full border-2 border-indigo-500 bg-white dark:bg-zinc-950" />
+                  
+                  <span className="text-[10px] font-mono text-zinc-400">{edu.period}</span>
+                  <h4 className="text-base font-bold text-zinc-950 dark:text-white">{edu.school}</h4>
+                  <p className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wide">{edu.degree}</p>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 font-light">{edu.details}</p>
+                  <p className="text-[10px] text-zinc-400 italic">{edu.location}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
   );

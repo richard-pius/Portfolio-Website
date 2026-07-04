@@ -1,114 +1,100 @@
 'use client';
 
-import ScrollReveal from './ScrollReveal';
-import MarqueeButton from './MarqueeButton';
-import { Asterisk, ArrowUpRight } from 'lucide-react';
-
-const projects = [
-  {
-    index: '01',
-    title: 'Semantic Book Recommender',
-    description:
-      'A powerful semantic library book recommendation engine built using Python that uses AI to find books matching your exact contextual interests.',
-    tech: ['Python', 'AI', 'NLP', 'Semantic Search'],
-    link: 'https://github.com/richard-pius/A-semantic-library-book-recommender',
-  },
-  {
-    index: '02',
-    title: 'ClearBreeze Forecast',
-    description:
-      'A beautiful, fluid, and responsive mobile weather application developed from scratch to display real-time conditions and forecasts.',
-    tech: ['Flutter', 'Dart', 'Mobile Dev', 'API Integration'],
-    link: 'https://github.com/richard-pius/ClearBreeze-Forecast',
-  },
-  {
-    index: '03',
-    title: 'Simple Linux Distro',
-    description:
-      'A lightweight, text-based Linux distribution built from scratch using Common Lisp for deep system-level experimentation.',
-    tech: ['Lisp', 'Linux', 'OS Development', 'Common Lisp'],
-    link: 'https://github.com/richard-pius/simple-linux-distro-',
-  },
-];
+import React from 'react';
+import { ExternalLink, Github } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { projects } from '../constants/data';
+import ProjectThreeCanvas from './ProjectThreeCanvas';
 
 export default function Projects() {
   return (
-    <section id="projects" className="section-padding px-6 md:px-12 lg:px-20 relative z-10">
-      <div className="max-w-6xl mx-auto">
-        {/* Section label */}
-        <ScrollReveal>
-          <div className="flex items-center gap-4 mb-16 md:mb-24">
-            <Asterisk className="w-5 h-5 star-spin text-[#00f3ff]" strokeWidth={1.5} />
-            <span className="text-body-lg text-white/50 font-mono tracking-wider">// CODE LABS & PORTFOLIO</span>
-          </div>
-        </ScrollReveal>
+    <section id="projects" className="py-24 px-6 border-t border-zinc-100 dark:border-zinc-900 transition-colors duration-300">
+      <div className="mx-auto max-w-5xl space-y-12">
+        {/* Section Title */}
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="space-y-3"
+        >
+          <span className="text-[10px] font-mono tracking-widest text-indigo-500 uppercase font-bold">// Portfolio</span>
+          <h2 className="text-3xl font-bold text-zinc-900 dark:text-white tracking-tight">Recent Projects</h2>
+          <p className="text-zinc-500 dark:text-zinc-400 font-light text-sm max-w-md">
+            A curated list of repositories, experimental distributions, and mobile weather dashboards.
+          </p>
+        </motion.div>
 
-        {/* Section heading */}
-        <ScrollReveal animation="slide-left">
-          <h2 className="text-heading mb-16 md:mb-24">
-            Projects<span className="text-[#ff00a0]">.</span>
-          </h2>
-        </ScrollReveal>
-
-        {/* Project list */}
-        <div className="space-y-6">
+        {/* Responsive Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, idx) => (
-            <ScrollReveal key={project.index} delay={idx * 100} animation="scale-up">
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-card block px-6 md:px-10 py-8 md:py-12 group no-underline text-white"
-              >
-                <div className="project-content flex flex-col md:flex-row md:items-start gap-4 md:gap-12">
-                  {/* Index */}
-                  <span className="project-index font-mono text-xs tracking-[0.2em] uppercase text-white/35 font-medium md:pt-2 transition-colors duration-300">
-                    {project.index} //
-                  </span>
-
-                  {/* Content */}
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between gap-4">
-                      <h3 className="text-xl md:text-2xl lg:text-3xl font-bold uppercase tracking-tight leading-none group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#00f3ff] group-hover:to-[#ff00a0] transition-all duration-300">
-                        {project.title}
-                      </h3>
-                      <ArrowUpRight className="project-arrow w-5 h-5 md:w-6 md:h-6 flex-shrink-0 text-white/30 transition-all duration-300" />
-                    </div>
-
-                    <p className="text-xs md:text-sm uppercase tracking-[0.02em] text-white/50 mt-4 leading-relaxed max-w-2xl transition-colors duration-300 group-hover:text-white/80">
-                      {project.description}
-                    </p>
-
-                    {/* Tech tags */}
-                    <div className="flex flex-wrap gap-2 mt-6">
-                      {project.tech.map((t) => (
-                        <span
-                          key={t}
-                          className="project-tech font-mono text-[9px] tracking-[0.1em] uppercase border border-white/5 bg-white/5 text-white/50 px-2.5 py-1 transition-all duration-300 group-hover:border-[#00f3ff]/30 group-hover:text-[#00f3ff]"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              className="group flex flex-col justify-between p-6 rounded-2xl border border-zinc-200/80 hover:border-zinc-300 dark:border-zinc-800/80 dark:hover:border-zinc-700 bg-white dark:bg-zinc-950 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/[0.02]"
+            >
+              <div className="space-y-4">
+                {/* 3D Visual Mesh Artifact */}
+                <div className="h-40 w-full rounded-xl bg-gradient-to-br from-zinc-50 to-zinc-100 dark:from-zinc-900/40 dark:to-zinc-950/20 flex items-center justify-center border border-zinc-100 dark:border-zinc-800/50 overflow-hidden relative">
+                  <ProjectThreeCanvas projectId={project.id} />
                 </div>
-              </a>
-            </ScrollReveal>
+
+                <div className="space-y-2">
+                  <h3 className="text-lg font-bold text-zinc-950 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-light">
+                    {project.description}
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-4 pt-4">
+                {/* Tech badges */}
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[9px] font-mono font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 px-2 py-0.5 rounded"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Project Links */}
+                <div className="flex items-center gap-4 pt-2 border-t border-zinc-100 dark:border-zinc-900">
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white font-medium"
+                    >
+                      <Github size={14} />
+                      Code
+                    </a>
+                  )}
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white font-medium"
+                    >
+                      <ExternalLink size={14} />
+                      Live Demo
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
-
-        {/* More projects link */}
-        <ScrollReveal delay={400} animation="scale-up">
-          <div className="mt-20 flex justify-center">
-            <MarqueeButton
-              href="https://github.com/richard-pius?tab=repositories"
-              target="_blank"
-              className="w-full md:w-auto !border-[#ff00a0] !text-[#ff00a0] hover:!bg-[#ff00a0] hover:!text-white"
-            >
-              More Repositories on GitHub
-            </MarqueeButton>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );
