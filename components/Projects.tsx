@@ -1,100 +1,105 @@
 'use client';
 
-import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../constants/data';
-import ProjectThreeCanvas from './ProjectThreeCanvas';
+import { ExternalLink } from 'lucide-react';
+import { Github as BrandGithub } from './BrandIcons';
 
 export default function Projects() {
+  const [filter, setFilter] = useState<string>('All');
+  
+  const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
+  
+  const filteredProjects = filter === 'All' 
+    ? projects 
+    : projects.filter(p => p.category === filter);
+
   return (
-    <section id="projects" className="py-24 px-6 border-t border-zinc-100 dark:border-zinc-900 transition-colors duration-300">
-      <div className="mx-auto max-w-5xl space-y-12">
-        {/* Section Title */}
-        <motion.div 
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="space-y-3"
-        >
-          <span className="text-[10px] font-mono tracking-widest text-indigo-500 uppercase font-bold">// Portfolio</span>
-          <h2 className="text-3xl font-bold text-zinc-900 dark:text-white tracking-tight">Recent Projects</h2>
-          <p className="text-zinc-500 dark:text-zinc-400 font-light text-sm max-w-md">
-            A curated list of repositories, experimental distributions, and mobile weather dashboards.
-          </p>
-        </motion.div>
+    <section id="projects" className="py-24 sm:py-32 px-6 bg-background">
+      <div className="max-w-5xl mx-auto space-y-16">
+        
+        {/* Header & Filter */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div>
+            <h2 className="text-sm font-semibold tracking-widest text-muted-foreground uppercase mb-2">Portfolio</h2>
+            <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground">
+              Selected Works.
+            </h3>
+          </div>
+          
+          <div className="flex flex-wrap gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setFilter(cat)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  filter === cat
+                    ? 'bg-foreground text-background'
+                    : 'bg-muted text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
 
-        {/* Responsive Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, idx) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="group flex flex-col justify-between p-6 rounded-2xl border border-zinc-200/80 hover:border-zinc-300 dark:border-zinc-800/80 dark:hover:border-zinc-700 bg-white dark:bg-zinc-950 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/[0.02]"
-            >
-              <div className="space-y-4">
-                {/* 3D Visual Mesh Artifact */}
-                <div className="h-40 w-full rounded-xl bg-gradient-to-br from-zinc-50 to-zinc-100 dark:from-zinc-900/40 dark:to-zinc-950/20 flex items-center justify-center border border-zinc-100 dark:border-zinc-800/50 overflow-hidden relative">
-                  <ProjectThreeCanvas projectId={project.id} />
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-lg font-bold text-zinc-950 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+        {/* Project Grid */}
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4 }}
+                className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:bg-muted/50 transition-colors flex flex-col justify-between space-y-8"
+              >
+                <div className="space-y-4">
+                  <div className="flex justify-between items-start">
+                    <span className="text-xs font-mono font-medium text-muted-foreground">{project.id}</span>
+                    <span className="text-xs font-medium text-accent px-2 py-1 bg-accent/10 rounded-full">{project.category}</span>
+                  </div>
+                  
+                  <h4 className="text-2xl font-bold tracking-tight text-foreground group-hover:text-accent transition-colors">
                     {project.title}
-                  </h3>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-light">
+                  </h4>
+                  
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {project.description}
                   </p>
                 </div>
-              </div>
 
-              <div className="space-y-4 pt-4">
-                {/* Tech badges */}
-                <div className="flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[9px] font-mono font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 px-2 py-0.5 rounded"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                <div className="space-y-6">
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="text-xs font-medium text-muted-foreground bg-background px-2 py-1 rounded-md border border-border/50">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
-                {/* Project Links */}
-                <div className="flex items-center gap-4 pt-2 border-t border-zinc-100 dark:border-zinc-900">
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white font-medium"
-                    >
-                      <Github size={14} />
-                      Code
-                    </a>
-                  )}
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white font-medium"
-                    >
-                      <ExternalLink size={14} />
-                      Live Demo
-                    </a>
-                  )}
+                  <div className="flex items-center gap-4 pt-4 border-t border-border/50">
+                    {project.githubUrl && (
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2 text-sm font-medium">
+                        <BrandGithub /> Code
+                      </a>
+                    )}
+                    {project.liveUrl && (
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2 text-sm font-medium">
+                        <ExternalLink size={16} /> Live Demo
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
       </div>
     </section>
   );

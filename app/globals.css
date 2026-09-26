@@ -2,26 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
+@layer base {
+  :root {
+    --background: #FFFFFF;
+    --foreground: #1D1D1F;
+    --muted: #F5F5F7;
+    --muted-foreground: #86868B;
+    --border: #D2D2D7;
+    --accent: #0066CC;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .dark {
+    --background: #000000;
+    --foreground: #F5F5F7;
+    --muted: #1D1D1F;
+    --muted-foreground: #86868B;
+    --border: #333336;
+    --accent: #2997FF;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: #FFF;
+  }
+
+  /* Minimal scrollbar */
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
   }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease-out forwards;
-}
-
-.animate-slideUp {
-  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+@layer components {
+  .glass-panel {
+    @apply bg-white/70 dark:bg-black/70 backdrop-blur-xl border border-white/20 dark:border-white/10;
+  }
+  
+  .minimal-btn {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-2;
+  }
+  
+  .minimal-btn-primary {
+    @apply bg-foreground text-background hover:scale-[1.02] active:scale-[0.98];
+  }
+  
+  .minimal-btn-secondary {
+    @apply bg-muted text-foreground hover:opacity-80 active:scale-[0.98];
+  }
 }
