@@ -1,49 +1,68 @@
-# Richard Pius — Premium 3D WebGL Developer Portfolio
+<div align="center">
 
-A highly professional, modern, and polished developer portfolio website showcasing a minimalist, component-driven design integrated with interactive 3D WebGL assets, smooth animations, and search engine optimizations.
+# Richard Pius — Minimalist Software Developer Portfolio
 
-Built using **Next.js (App Router)**, **Tailwind CSS**, **Three.js**, and **Framer Motion**.
+A highly professional, modern, and polished developer portfolio website showcasing a clean, minimalist design language.
+
+![Next.js](https://img.shields.io/badge/Next.js-16.3+-black?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-19.3+-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4+-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.4+-black?style=for-the-badge&logo=framer&logoColor=blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.3+-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+
+</div>
 
 ---
 
+## 📖 Overview
+
+The architecture of this portfolio focuses on beautiful typography, Apple-inspired glassmorphism, and smooth interactive animations. It shifts away from heavy 3D WebGL in favor of blazing-fast performance, accessibility, and an elegant, content-first user experience.
+
 ## 🛠️ Tech Stack & Architecture
 
-- **Framework**: Next.js 14+ (App Router)
-- **Styling**: Tailwind CSS
-- **3D Renderers**: Vanilla Three.js WebGL (Cel-Shaded / MeshToonMaterial)
-- **Animations**: Framer Motion
+- **Framework**: Next.js 16 (App Router) & React 19
+- **Styling**: Tailwind CSS 3 (Configured with custom Apple-inspired UI variables)
+- **Animations**: Framer Motion (Layout animations & `AnimatePresence`)
+- **Typography**: Plus Jakarta Sans (Sans-serif) & JetBrains Mono (Monospace)
 - **Language**: 100% Strict TypeScript
 - **Icons**: Lucide React
-- **SEO & Semantics**: JSON-LD Structured Data (`Person` Schema) & Next.js Metadata API
+- **Data Management**: Centralized single source of truth (`constants/data.ts`)
 
 ---
 
 ## ✨ Features & Engineering Highlights
 
-### 1. 🌀 Interactive 3D Hero Widget
-- Renders a low-poly geodesic shape (Icosahedron) encapsulated inside an outer cybernetic neon wireframe grid.
-- Utilizes event interceptors to slerp/lerp coordinates based on mouse movement, producing a smooth 3D parallax depth tilt relative to the cursor.
+### 🌬️ Clean, Typographic Hero Section
+A minimalist, typography-driven hero interface with subtle ambient background blurs (`blur-[120px]`) and staggered Framer Motion reveal animations. Designed to immediately grab attention without overwhelming the user.
 
-### 2. 📦 Unique 3D Project Cards
-- Replaces standard image placeholders with isolated WebGL canvases.
-- Spawns a unique, rotating geometric representation corresponding to each repository:
-  - **NicheSearch**: 3D Box (representing cloud & server infrastructure).
-  - **TubeSift**: 3D Cylinder (funnel / DOM filter sifter).
-  - **ClearBreeze Forecast**: 3D Sphere (weather globe).
-  - **Rithaji-1.5B Code Generator**: 3D Torus (neural network code loops).
-  - **Semantic Book Recommender**: 3D Octahedron (multidimensional semantic text node).
-  - **2D Platform Game**: 3D Cone (game coin token).
-- **Micro-Interactions**: Hovering over cards speeds up rotation and dynamically transitions mesh colors from **Indigo** to **Emerald**.
+### 🎨 Glassmorphism & Apple-Inspired UI
+Features a floating, backdrop-blurred navigation bar (`.glass-panel`) that dynamically reacts to scroll state. Built using a custom CSS variable architecture in `globals.css` ensuring perfect contrast ratios across light and dark contexts.
 
-### 3. 🌗 Adaptive Light/Dark Mode
-- Seamless client-side state synchronization that updates root HTML node document classes dynamically. Styled using Tailwind's `dark:` selectors.
+### 📦 Interactive Project Grid
+Animated layout filtering using Framer Motion's `AnimatePresence` and `layout` props. Users can instantly filter projects by categories (Cloud & DevOps, Web & Tools, AI & LLMs, Mobile & Games) with seamless, physics-based card repositioning.
 
-### 4. 📂 Centralized Data Constants
-- Separation of concerns: all copy texts, skills categories, education milestones, job experience logs, and certificates are read dynamically from a single source of truth at `constants/data.ts`.
+### 💼 Dedicated Freelance Showcase
+Highlights premium freelanced projects (like the ZENJI Learning App) with detailed architecture breakdowns, deliverables, tech stacks, and live metrics. 
 
-### 5. 🛡️ Search Engine Optimization (SEO)
+### 🌗 Adaptive Light/Dark Mode
+Seamless client-side state synchronization that updates root HTML node document classes dynamically. It utilizes Tailwind's `dark:` selectors and custom CSS color tokens, with state persistence across sessions via `localStorage`.
+
+### 🛡️ Search Engine Optimization (SEO)
 - **Metadata API**: Custom headers, search keywords, canonical tags, and OpenGraph/Twitter summary cards compiled on layout render.
 - **JSON-LD Schema**: Statically injects Google Rich Snippets `Person` metadata to index professional affiliations, skills, and alumni credentials.
+
+---
+
+## 🏗️ Project Structure
+
+```text
+├── app/                  # Next.js 16 App Router (layout.tsx, page.tsx, globals.css)
+├── components/           # Modular React components (Hero, Navbar, Projects, etc.)
+├── constants/            # Centralized content and copy (data.ts)
+├── public/               # Static assets
+├── tailwind.config.js    # Tailwind CSS configuration
+└── next.config.mjs       # Next.js build configuration
+```
 
 ---
 
@@ -60,8 +79,8 @@ npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-### 3. Build Production Export
+### 3. Build for Production
 ```bash
 npm run build
 ```
-Generates a highly optimized production bundle.
+Generates a highly optimized production bundle ready for deployment on Vercel, AWS, or any standard Node environment.
