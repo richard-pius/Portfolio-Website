@@ -182,6 +182,17 @@ export const experiences: Experience[] = [
     link: "https://zenjilearning.vercel.app/"
   },
   {
+    role: "Community Development and Android Application Development Intern",
+    company: "BlueSignal Infosec (OPC) Pvt. Ltd",
+    period: "Jul 2026 – Sep 2026",
+    location: "Remote",
+    type: "Internship",
+    description: [
+      "Developed functional UI/UX prototypes and live-feed features for the Blue Signal Android application, while actively conducting feature testing and gathering real-world user feedback to support product promotion and community development."
+    ],
+    skills: ["Android Development", "UI/UX Prototyping", "Feature Testing", "Community Development"]
+  },
+  {
     role: "Cloud, DevOps and Cybersecurity Intern",
     company: "ipsr solutions ltd",
     period: "April 2026 — June 2026",
